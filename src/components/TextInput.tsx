@@ -52,6 +52,7 @@ const TextInput = ({
           className={`bg-black text-green-500 px-2 w-full resize-none ${
             size === "single-line" ? "h-8 overflow-hidden" : "h-24"
           }`}
+          //   style={{ WebkitTextSecurity: censored ? "disc" : "none" }}
           rows={size === "single-line" ? 1 : 3}
         />
       </div>
