@@ -23,6 +23,7 @@ const TextInput = ({
   valMessage,
 }: TextInputProps) => {
   const [value, setValue] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     onChange?.(e.target.value);
@@ -40,7 +41,15 @@ const TextInput = ({
 
     <div className="flex flex-col text-green-500 font-mono gap-2">
       <motion.div
-        className={`flex flex-row p-2 border-2 rounded-sm relative ${disabled ? "border-gray-500" : "border-green-500"} focus-within:border-green-300`}
+        animate={{
+          borderColor: isFocused
+            ? "rgb(134, 239, 172)"
+            : disabled
+              ? "rgb(107, 114, 128)"
+              : "rgb(34, 197, 94)",
+        }}
+        transition={{ duration: 0.3 }}
+        className={`flex flex-row p-2 border-2 rounded-sm relative ${disabled ? "border-gray-500" : "border-green-500"} `}
       >
         {popover && <ToolTipGroup popover={popover} disabled={disabled} />}
 
@@ -51,6 +60,8 @@ const TextInput = ({
         </div>
         <textarea
           value={value}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           disabled={disabled}
