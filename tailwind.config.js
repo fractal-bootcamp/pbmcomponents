@@ -9,11 +9,20 @@ export default {
       animation: {
         wiggle: "wiggle 0.5s ease-in-out infinite",
         fadeinbouncedown: 'fade-in-bouncedown 1s ease-in-out 0.25s 1',
-        fadeout: 'fade-out 1s ease-out 0.25s 1',
+        fadeout: 'fade-out  ease-out 0.25s 1',
         flyoutdown: 'fly-out-down 0.6s ease-in-out 0.25s 1',
         fadeoutup: 'fade-out-up .3s ease-in-out 0.25s 1',
+        fadein: 'fade-in ease-in-out 0.25s 1',
       },
       keyframes: {
+        "fade-in": {
+          "0%": {
+            opacity: 0
+          },
+          "100%": {
+            opacity: 1
+          },
+        },
         "fade-out-up": {
           "0%": {
             opacity: 1,
