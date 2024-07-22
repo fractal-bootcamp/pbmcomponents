@@ -6,6 +6,10 @@ const meta = {
   component: TextInput,
   parameters: {
     layout: "centered",
+    backgrounds: {
+      default: "dark",
+      values: [{ name: "dark", value: "#000000" }],
+    },
   },
   tags: ["autodocs"],
   argTypes: {
