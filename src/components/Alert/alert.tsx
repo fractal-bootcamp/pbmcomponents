@@ -9,7 +9,7 @@ type ErrorAlertProps = {
 }
 
 
-function ErrorAlert({ message, dismiss, dismissTime, type }: ErrorAlertProps) {
+function Alert({ message, dismiss, dismissTime, type }: ErrorAlertProps) {
     const [show, setShow] = useState(true);
     const [fadeOut, setFadeOut] = useState(false);
 
@@ -89,55 +89,6 @@ function ErrorAlert({ message, dismiss, dismissTime, type }: ErrorAlertProps) {
             ) : null}
         </>
     )
-}
-
-//example alert queue
-const AlertQueue = [
-
-    {
-        message: "You dun goofed",
-        dismiss: "manual",
-        type: "Error"
-    },
-    {
-        message: "Auto Alert 7000 seconds",
-        dismiss: "auto",
-        dismissTime: 7000,
-        type: "Error"
-    },
-    {
-        message: "Auto Alert with no time",
-        dismiss: "manual",
-        type: "Error"
-    },
-    {
-        message: "Auto Alert Manual",
-        dismiss: "manual",
-        type: "Info"
-    },
-    {
-        message: "Auto Alert with no time",
-        dismiss: "manual",
-        type: "Warning"
-    },
-    {
-        message: "Auto Alert with no time",
-        dismiss: "manual",
-        type: "Success"
-    },
-
-
-]
-
-
-function Alert() {
-    return (
-        <>
-            {AlertQueue.map((alert) => {
-                return <ErrorAlert message={alert.message} dismiss={alert.dismiss} dismissTime={alert.dismissTime} type={alert.type} />
-            })}
-        </>
-    );
 }
 
 export default Alert;
