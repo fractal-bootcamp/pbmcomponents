@@ -1,3 +1,5 @@
+import { text } from "body-parser";
+
 export interface TextInputProps {
   size?: "single-line" | "multi-line";
   value?: string;
@@ -21,13 +23,25 @@ const TextInput = ({
   // Value and onChange handler
 
   // show popover only if value is not empty
-  return (
-    <input
-      type="text"
-      placeholder="hello bro"
-      className="border-2 border-green-500 rounded-sm px-2"
-    />
-  );
+
+  if (size === "single-line") {
+    return (
+      <input
+        type="text"
+        placeholder={placeholder}
+        className="border-2 border-green-500 rounded-sm px-2"
+        style={{ verticalAlign: "center", minHeight: "30px" }}
+      />
+    );
+  } else {
+    return (
+      <textarea
+        placeholder={placeholder}
+        className="border-2 border-green-500 rounded-sm px-2"
+        style={{ verticalAlign: "center", minHeight: "100px" }}
+      />
+    );
+  }
 };
 
 export default TextInput;
