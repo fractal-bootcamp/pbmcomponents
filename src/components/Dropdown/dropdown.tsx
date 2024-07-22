@@ -34,7 +34,7 @@ function Dropdown({ options, placeholder, disabled, multiSelect, borderedOptions
     }
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col w-fit">
             <div
                 className={`flex flex-row items-center p-2 mx-4 mt-4 text-lg border-2 border-green-500 text-green-500 bg-black ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
                 onClick={handleDropdownClick}
