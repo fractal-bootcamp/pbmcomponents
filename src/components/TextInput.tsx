@@ -46,7 +46,7 @@ const TextInput = ({
           onKeyDown={handleKeyDown}
           disabled={disabled}
           placeholder={placeholder}
-          className={`bg-black  w-full resize-none ${
+          className={`bg-black focus:outline-none w-full resize-none ${
             size === "single-line" ? "h-8 overflow-hidden" : "h-24"
           }
           ${censored ? "text-security" : ""}
