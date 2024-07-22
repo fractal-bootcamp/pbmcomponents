@@ -87,6 +87,7 @@ const TextInput = ({
             size === "single-line" ? "h-8 overflow-hidden" : "h-24"
           }
           ${censored ? "text-security" : ""}
+          ${disabled ? "text-gray-500" : "text-green-500"}
           `}
           rows={size === "single-line" ? 1 : 3}
         />
