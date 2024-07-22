@@ -13,12 +13,19 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
-    size: { control: "select", options: ["single-line", "multi-line"] },
+    size: {
+      control: { type: "radio" },
+      options: ["single-line", "multi-line"],
+    },
     onChange: { action: "changed" },
     disabled: { control: "boolean" },
     censored: { control: "boolean" },
     placeholder: { control: "text" },
     popover: { control: "text" },
+    valState: {
+      control: { type: "radio" },
+      options: ["error", "success", "default"],
+    },
   },
 } satisfies Meta<typeof TextInput>;
 

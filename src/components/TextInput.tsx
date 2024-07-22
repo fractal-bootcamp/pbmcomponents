@@ -8,6 +8,7 @@ export interface TextInputProps {
   placeholder?: string;
   popover?: string;
   valState?: "error" | "success" | "default";
+  valMessage?: string;
 }
 
 const TextInput = ({
@@ -18,6 +19,8 @@ const TextInput = ({
   placeholder = "",
   popover,
   valState = "default",
+  valMessage,
+  ...props
 }: TextInputProps) => {
   const [value, setValue] = useState("");
 
@@ -33,18 +36,18 @@ const TextInput = ({
   };
 
   return (
-    <>
-      <div className="flex flex-row p-2 font-mono border-2 border-green-500 rounded-sm relative">
+    <div className="flex flex-col text-green-500 font-mono gap-2">
+      <div className="flex flex-row p-2  border-2 border-green-500 rounded-sm relative">
         {popover && <ToolTipGroup popover={popover} />}
 
-        <div className="px-2 text-green-500">&gt;</div>
+        <div className="px-2 ">&gt;</div>
         <textarea
           value={value}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           disabled={disabled}
           placeholder={placeholder}
-          className={`bg-black text-green-500 w-full resize-none ${
+          className={`bg-black  w-full resize-none ${
             size === "single-line" ? "h-8 overflow-hidden" : "h-24"
           }
           ${censored ? "text-security" : ""}
@@ -52,7 +55,13 @@ const TextInput = ({
           rows={size === "single-line" ? 1 : 3}
         />
       </div>
-    </>
+      {valState === "error" && (
+        <div className="text-red-500 text-sm">Error! {valMessage}</div>
+      )}
+      {valState === "success" && (
+        <div className="text-sm">Success! {valMessage}</div>
+      )}
+    </div>
   );
 };
 
