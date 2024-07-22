@@ -1,4 +1,5 @@
 export interface TextInputProps {
+  size?: "single-line" | "multi-line";
   value?: string;
   onChange?: (value: string) => void;
   disabled?: boolean;
@@ -8,6 +9,7 @@ export interface TextInputProps {
 }
 
 const TextInput = ({
+  size,
   value,
   onChange,
   disabled,
@@ -23,7 +25,7 @@ const TextInput = ({
     <input
       type="text"
       placeholder="hello bro"
-      className="border-8 border-red-500"
+      className="border-2 border-green-500 rounded-sm px-2"
     />
   );
 };

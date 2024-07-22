@@ -10,6 +10,7 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     value: { control: "text" },
+    size: { control: "select", options: ["single-line", "multi-line"] },
     onChange: { action: "changed" },
     disabled: { control: "boolean" },
     censored: { control: "boolean" },
