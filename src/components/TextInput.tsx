@@ -33,9 +33,16 @@ const TextInput = ({
   return (
     <>
       <div className="flex flex-row border-2 border-green-500 rounded-sm relative">
-        <div className="border-[1px] border-green-500 h-auto text-green-500">
-          i
-        </div>
+        {popover && (
+          <div className="relative group">
+            <div className="border-[1px] border-green-500 w-[50px] h-auto text-green-500">
+              i
+            </div>
+            <div className="absolute hidden group-hover:block bg-gray-700 text-white text-xs rounded p-1">
+              jfowjeofijweofjoweifj
+            </div>
+          </div>
+        )}
         <textarea
           value={value}
           onChange={handleChange}
