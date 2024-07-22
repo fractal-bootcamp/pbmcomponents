@@ -32,7 +32,7 @@ const TextInput = ({
 
   return (
     <>
-      <div className="flex flex-row border-2 border-green-500 rounded-sm relative">
+      <div className="flex flex-row font-mono border-2 border-green-500 rounded-sm relative">
         {popover && (
           <div className="relative group">
             <div className="border-[1px] border-green-500 w-[50px] h-auto text-green-500">
