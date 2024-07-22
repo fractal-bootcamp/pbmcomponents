@@ -7,6 +7,7 @@ export interface TextInputProps {
   censored?: boolean;
   placeholder?: string;
   popover?: string;
+  valState: "error" | "success" | "default";
 }
 
 const TextInput = ({
@@ -16,6 +17,7 @@ const TextInput = ({
   censored = false,
   placeholder = "",
   popover,
+  valState = "default",
 }: TextInputProps) => {
   const [value, setValue] = useState("");
 
@@ -39,7 +41,7 @@ const TextInput = ({
               i
             </div>
             <div className="absolute hidden group-hover:block bg-gray-700 text-white text-xs rounded p-1">
-              jfowjeofijweofjoweifj
+              {popover}
             </div>
           </div>
         )}
