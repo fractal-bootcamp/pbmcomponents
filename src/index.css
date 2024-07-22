@@ -6,16 +6,26 @@
 /* Custom Progress Bar Styles */
 @layer components {
     .progress {
-      @apply w-4/5 h-6 shadow-sm border-2 border-green-500;
+      @apply w-full h-6 shadow-sm border-2 border-green-500 relative;
+      background-color: black;
     }
-    .progress::-webkit-progress-bar {
-      @apply bg-black ;
-    }
-    .progress::-webkit-progress-value {
-      @apply bg-green-500 shadow-md;
-    }
-    .progress::-moz-progress-bar {
-      @apply bg-green-500 shadow-md;
-    }
-  }
   
+    .progress-bar {
+      @apply h-full shadow-md;
+      background-color: green;
+      transition: width 0.3s ease-in-out;
+    }
+  
+    .progress-label {
+      @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white;
+    }
+  
+    /* Optional: Adjust the progress bar style for different states */
+  }
+
+  .progress-ring__circle {
+    stroke-dasharray: 400, 400;
+    transition: stroke-dashoffset 0.35s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+  }

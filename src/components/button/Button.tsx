@@ -7,23 +7,21 @@ export interface ButtonProps {
   label: string | number;
   onClick?: () => void;
 }
-
 export function Button({
   primary = false,
   backgroundColor,
   size = "medium",
-  label,
+  label = "Button", // Default value for label
   onClick,
 }: ButtonProps) {
   const btnClass = `font-mono border-2 ${primary ? "bg-green-500 text-black" : "bg-black text-green-500"} ${size === "small" ? "w-16 h-8" : size === "large" ? "w-24 h-12" : "w-20 h-10"} text-lg`;
 
   return (
     <button className={btnClass} onClick={onClick} style={{ backgroundColor }}>
-      Button
+      {label}
     </button>
   );
 }
-
 export function EnableDisableButtons() {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 

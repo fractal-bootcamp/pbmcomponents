@@ -1,10 +1,15 @@
 import ProgressBar from "./components/progressBar/ProgressBar";
 import {
+  CircularProgressBarFixedValue30,
+  CircularProgressBarFixedValue60,
+} from "./components/progressBar/CircularProgressBar";
+import {
   Button,
   EnableDisableButtons,
   LoadingButton,
   ToolTipOnHover,
 } from "./components/button/Button";
+import SingleFileUploader from "./components/fileUploader/SingleFileUploader";
 export default function App() {
   return (
     <>
@@ -13,7 +18,7 @@ export default function App() {
       <EnableDisableButtons />
       <LoadingButton />
       <ToolTipOnHover />
-      <ProgressBar />
+      <SingleFileUploader />
     </>
   );
 }
