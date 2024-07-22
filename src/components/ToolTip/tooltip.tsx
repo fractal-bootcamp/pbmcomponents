@@ -38,7 +38,7 @@ function ToolTip({ children, position, trigger, content, delay }: ToolTipProps) 
         <div className="relative inline-block" {...triggerProps}>
             {children}
             {isVisible && (
-                <div className={`${showToolTip ? 'animate-fadein' : 'animate-fadeout'} absolute p-2 bg-black w-full text-green-500 border-2 border-green-500 ${getPositionClasses(position)}`}>
+                <div className={`${showToolTip ? 'animate-fadein' : 'animate-fadeout'} absolute p-2 bg-black w-max text-green-500 border-2 border-green-500 ${getPositionClasses(position)}`}>
                     {content}
                 </div>
             )}
