@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Custom Progress Bar Styles */
+@layer components {
+    .progress {
+      @apply w-4/5 h-6 shadow-sm border-2 border-green-500;
+    }
+    .progress::-webkit-progress-bar {
+      @apply bg-black ;
+    }
+    .progress::-webkit-progress-value {
+      @apply bg-green-500 shadow-md;
+    }
+    .progress::-moz-progress-bar {
+      @apply bg-green-500 shadow-md;
+    }
+  }
+  
