@@ -20,7 +20,6 @@ const TextInput = ({
   popover,
   valState = "default",
   valMessage,
-  ...props
 }: TextInputProps) => {
   const [value, setValue] = useState("");
 
@@ -57,7 +56,7 @@ const TextInput = ({
         <button
           type="button"
           onClick={() => setValue("")}
-          className="relative bottom-2 transform translate-y-1/2 bg-transparent border-none cursor-pointer"
+          className="relative ml-2 bottom-2 transform translate-y-1/2 bg-transparent border-none cursor-pointer"
           aria-label="Clear input"
         >
           x
