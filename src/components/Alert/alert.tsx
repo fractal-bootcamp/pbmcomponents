@@ -78,7 +78,7 @@ function Alert({ message, dismiss, dismissTime, type }: ErrorAlertProps) {
     return (
         <>
             {show ? (
-                <div className={`flex items-center p-4 mx-4 my-4 text-lg text-green-500 bg-black animate-fadeinbouncedown ${fadeOut ? 'animate-fadeoutup' : ''}`} >
+                <div className={`flex items-center p-4 mx-4 my-4 text-lg border-2 border-green-500 text-green-500 bg-black animate-fadeinbouncedown ${fadeOut ? 'animate-fadeoutup' : ''}`} >
                     {getIcon()}
 
                     <div className="ms-3 text-lg font-medium">
