@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 export interface TextInputProps {
   size?: "single-line" | "multi-line";
@@ -35,11 +36,19 @@ const TextInput = ({
   };
 
   return (
-    <div className="flex flex-col text-green-500 font-mono gap-2">
-      <div className="flex flex-row p-2  border-2 border-green-500 rounded-sm relative">
-        {popover && <ToolTipGroup popover={popover} />}
+    //
 
-        <div className="px-2 ">&gt;</div>
+    <div className="flex flex-col text-green-500 font-mono gap-2">
+      <motion.div
+        className={`flex flex-row p-2 border-2 rounded-sm relative ${disabled ? "border-gray-500" : "border-green-500"} focus-within:border-green-300`}
+      >
+        {popover && <ToolTipGroup popover={popover} disabled={disabled} />}
+
+        <div
+          className={`px-2 ${disabled ? "text-gray-500" : "text-green-500"}`}
+        >
+          &gt;
+        </div>
         <textarea
           value={value}
           onChange={handleChange}
@@ -56,12 +65,12 @@ const TextInput = ({
         <button
           type="button"
           onClick={() => setValue("")}
-          className="relative ml-2 bottom-2 transform translate-y-1/2 bg-transparent border-none cursor-pointer"
+          className={`relative ml-2 bottom-2 transform translate-y-1/2 bg-transparent border-none cursor-pointer ${disabled ? "text-gray-500" : "text-green-500"}`}
           aria-label="Clear input"
         >
           x
         </button>
-      </div>
+      </motion.div>
       {valState === "error" && (
         <div className="text-red-500 text-sm">Error! {valMessage}</div>
       )}
@@ -72,10 +81,18 @@ const TextInput = ({
   );
 };
 
-const ToolTipGroup = ({ popover }: { popover: string }) => {
+const ToolTipGroup = ({
+  popover,
+  disabled,
+}: {
+  popover: string;
+  disabled: boolean;
+}) => {
   return (
     <div className="relative group">
-      <div className="border-[1px] border-green-500  px-2 text-green-500">
+      <div
+        className={`border-[1px] px-2  ${disabled ? "border-gray-500 text-gray-500" : "border-green-500 text-green-500"}`}
+      >
         i
       </div>
       <div className="absolute hidden group-hover:block bg-gray-700 text-white text-xs rounded p-1">
