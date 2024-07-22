@@ -13,7 +13,6 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
-    value: { control: "text" },
     size: { control: "select", options: ["single-line", "multi-line"] },
     onChange: { action: "changed" },
     disabled: { control: "boolean" },
@@ -28,7 +27,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    value: "",
     placeholder: "Enter text...",
     disabled: false,
     censored: false,
@@ -37,7 +35,6 @@ export const Default: Story = {
 
 export const Disabled: Story = {
   args: {
-    value: "Disabled input",
     placeholder: "Cannot edit",
     disabled: true,
   },
@@ -45,7 +42,6 @@ export const Disabled: Story = {
 
 export const Censored: Story = {
   args: {
-    value: "Secret text",
     placeholder: "Censored input",
     censored: true,
   },
