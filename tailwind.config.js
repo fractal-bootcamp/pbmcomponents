@@ -13,8 +13,35 @@ export default {
         flyoutdown: 'fly-out-down 0.6s ease-in-out 0.25s 1',
         fadeoutup: 'fade-out-up .3s ease-in-out 0.25s 1',
         fadein: 'fade-in ease-in-out 0.25s 1',
+        tada: 'tada 1s ease-in-out ',
+        draw: 'draw 1s ease-in-out',
       },
       keyframes: {
+        draw: {
+          from: {
+            strokeDashoffset: 240,
+          },
+          to: {
+            strokeDashoffset: 0,
+          },
+        },
+        tada: {
+          "0%": {
+            transform: "scale3d(1, 1, 1)",
+          },
+          "10%, 20%": {
+            transform: "scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg)",
+          },
+          "30%, 50%, 70%, 90%": {
+            transform: "scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)",
+          },
+          "40%, 60%, 80%": {
+            transform: "scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg)",
+          },
+          "100%": {
+            transform: "scale3d(1, 1, 1)",
+          },
+        },
         "fade-in": {
           "0%": {
             opacity: 0
