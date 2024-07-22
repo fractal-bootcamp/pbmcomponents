@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
 
 export interface TextInputProps {
   size?: "single-line" | "multi-line";
@@ -24,6 +24,7 @@ const TextInput = ({
 }: TextInputProps) => {
   const [value, setValue] = useState("");
   const [isFocused, setIsFocused] = useState(false);
+  const controls = useAnimation();
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     onChange?.(e.target.value);
@@ -36,19 +37,35 @@ const TextInput = ({
     }
   };
 
+  //   useEffect(() => {
+  //     if (valState === "error") {
+  //       controls.start({
+  //         x: [0, -10, 10, -10, 10, 0],
+  //         transition: { duration: 0.5 },
+  //       });
+  //     }
+  //   }, [valState, controls]);
+
+  const getBorderColor = () => {
+    if (disabled) return "rgb(107, 114, 128)"; // gray-500
+    if (valState === "error") return "rgb(239, 68, 68)"; // red-500
+    if (isFocused) return "rgb(134, 239, 172)"; // green-300
+    return "rgb(34, 197, 94)"; // green-500
+  };
+
   return (
     //
 
     <div className="flex flex-col text-green-500 font-mono gap-2">
       <motion.div
         animate={{
-          borderColor: isFocused
-            ? "rgb(134, 239, 172)"
-            : disabled
-              ? "rgb(107, 114, 128)"
-              : "rgb(34, 197, 94)",
+          borderColor: getBorderColor(),
+          x: valState === "error" ? [0, -10, 10, -10, 10, 0] : 0,
         }}
-        transition={{ duration: 0.3 }}
+        transition={{
+          borderColor: { duration: 0.3 },
+          x: { duration: 0.5, ease: "easeInOut" },
+        }}
         className={`flex flex-row p-2 border-2 rounded-sm relative ${disabled ? "border-gray-500" : "border-green-500"} `}
       >
         {popover && <ToolTipGroup popover={popover} disabled={disabled} />}
