@@ -43,18 +43,18 @@ const TextInput = ({
             </div>
           </div>
         )}
+        <div className="px-2 text-green-500">&gt;</div>
         <textarea
           value={value}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           disabled={disabled}
           placeholder={placeholder}
-          className={`bg-black text-green-500 px-2 w-full resize-none ${
+          className={`bg-black text-green-500 w-full resize-none ${
             size === "single-line" ? "h-8 overflow-hidden" : "h-24"
           }
           ${censored ? "text-security" : ""}
           `}
-          //   style={{ WebkitTextSecurity: censored ? "disc" : "none" }}
           rows={size === "single-line" ? 1 : 3}
         />
       </div>
