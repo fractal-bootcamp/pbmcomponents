@@ -54,6 +54,14 @@ const TextInput = ({
           `}
           rows={size === "single-line" ? 1 : 3}
         />
+        <button
+          type="button"
+          onClick={() => setValue("")}
+          className="relative bottom-2 transform translate-y-1/2 bg-transparent border-none cursor-pointer"
+          aria-label="Clear input"
+        >
+          x
+        </button>
       </div>
       {valState === "error" && (
         <div className="text-red-500 text-sm">Error! {valMessage}</div>
