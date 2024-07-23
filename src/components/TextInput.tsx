@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 
 export interface TextInputProps {
@@ -24,7 +24,6 @@ const TextInput = ({
 }: TextInputProps) => {
   const [value, setValue] = useState("");
   const [isFocused, setIsFocused] = useState(false);
-  const controls = useAnimation();
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     onChange?.(e.target.value);
@@ -37,15 +36,6 @@ const TextInput = ({
     }
   };
 
-  //   useEffect(() => {
-  //     if (valState === "error") {
-  //       controls.start({
-  //         x: [0, -10, 10, -10, 10, 0],
-  //         transition: { duration: 0.5 },
-  //       });
-  //     }
-  //   }, [valState, controls]);
-
   const getBorderColor = () => {
     if (disabled) return "rgb(107, 114, 128)"; // gray-500
     if (valState === "error") return "rgb(239, 68, 68)"; // red-500
@@ -54,8 +44,6 @@ const TextInput = ({
   };
 
   return (
-    //
-
     <div className="flex flex-col text-green-500 font-mono gap-2">
       <motion.div
         animate={{
