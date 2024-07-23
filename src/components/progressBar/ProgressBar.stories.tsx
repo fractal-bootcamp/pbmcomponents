@@ -1,5 +1,7 @@
 import React from "react";
 import ProgressBar from "./ProgressBar";
+import index from "../../index.css";
+import { Meta } from "@storybook/react";
 
 // Default export for Storybook
 export default {
@@ -18,19 +20,16 @@ export default {
 // Template for the ProgressBar component
 const Template = (args) => <ProgressBar {...args} />;
 
-// Linear progress bar stories
-export const LinearProgress30 = Template.bind({});
-LinearProgress30.args = {
-  currentValue: 30,
-  maxValue: 100,
-  isLinear: true,
-  backgroundColor: "bg-gray-200",
-  progressColor: "bg-green-500",
+// Meta configuration for the storybook
+const meta: Meta = {
+  title: "Components/Buttons",
+  component: ProgressBar,
 };
 
-export const LinearProgress60 = Template.bind({});
-LinearProgress60.args = {
-  currentValue: 60,
+// Linear progress bar stories
+export const LinearProgress = Template.bind({});
+LinearProgress.args = {
+  currentValue: 0,
   maxValue: 100,
   isLinear: true,
   backgroundColor: "bg-gray-200",
@@ -38,18 +37,9 @@ LinearProgress60.args = {
 };
 
 // Circular progress bar stories
-export const CircularProgress30 = Template.bind({});
-CircularProgress30.args = {
-  currentValue: 30,
-  maxValue: 100,
-  isLinear: false,
-  backgroundColor: "bg-gray-200",
-  progressColor: "bg-green-500",
-};
-
-export const CircularProgress60 = Template.bind({});
-CircularProgress60.args = {
-  currentValue: 60,
+export const CircularProgress = Template.bind({});
+CircularProgress.args = {
+  currentValue: 66,
   maxValue: 100,
   isLinear: false,
   backgroundColor: "bg-gray-200",
