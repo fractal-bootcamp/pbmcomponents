@@ -60,7 +60,7 @@ function Dropdown({ options, placeholder, disabled, multiSelect, borderedOptions
                     )}
                 </div>
                 <div className="border-l-2 border-green-500 h-8 mx-2"></div>
-                <button disabled={disabled}>
+                <button onClick={handleDropdownClick} disabled={disabled}>
                     <svg
                         className="w-4 h-4 mx-2"
                         xmlns="http://www.w3.org/2000/svg"
